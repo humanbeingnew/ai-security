@@ -1,0 +1,29 @@
+name = "sentinel-ai-waf-m4"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+
+[ai]
+binding = "AI"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "sentinel-db"
+database_id = "REPLACE_WITH_D1_ID"
+
+[[durable_objects.bindings]]
+name = "SOC"
+class_name = "SOCStream"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["SOCStream"]
+
+[vars]
+PROTECTED_ORIGIN = "https://example.com"
+AUTO_BAN_MINUTES = "60"
+AI_ENABLED = "true"
