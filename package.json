@@ -1,1 +1,0 @@
-{"name":"sentinel-ai-waf-m4","version":"4.0.0","private":true,"type":"module","scripts":{"dev":"wrangler dev","deploy":"wrangler deploy","db:init":"wrangler d1 execute sentinel-db --remote --file=./db/schema.sql","check":"node --check src/index.js"},"devDependencies":{"wrangler":"^4.0.0"}}
