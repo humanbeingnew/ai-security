@@ -1,0 +1,41 @@
+name = "sentinel-ai-waf-m5"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+
+[ai]
+binding = "AI"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "sentinel-db"
+database_id = "6ff6663b-54ed-47b0-a9e3-0bb4424b3723"
+
+[[durable_objects.bindings]]
+name = "SOC"
+class_name = "SOCStream"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["SOCStream"]
+
+[vars]
+PROTECTED_ORIGIN = "https://example.com"
+AUTO_BAN_MINUTES = "60"
+AI_ENABLED = "true"
+LOCAL_RATE_LIMIT = "60"
+LOCAL_RATE_WINDOW_MS = "60000"
+BAN_ESCALATION_THRESHOLD = "3"
+
+# Optional Cloudflare Rate Limiting binding.
+# If you create a Rate Limiting namespace in Cloudflare, uncomment and set a unique numeric namespace_id.
+# [[ratelimits]]
+# name = "SENTINEL_RL"
+# namespace_id = "1001"
+# [ratelimits.simple]
+# limit = 120
+# period = 60
